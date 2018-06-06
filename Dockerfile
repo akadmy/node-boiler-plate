@@ -1,10 +1,23 @@
-FROM node:6-onbuild
+# Get the latest node image
+FROM node:latest
 
-# 80 = HTTP, 443 = HTTPS, 3000 = MEAN.JS server, 35729 = livereload, 8080 = node-inspector
-EXPOSE 80 443 3000 35729 8080
+# Create a folder to hold the code for your app
+RUN mkdir -p /usr/src/app
 
-# Set development environment as default
-ENV NODE_ENV development
+# Change the directory to your application folder
+WORKDIR /usr/src/app
 
-ENV TZ=Asia/Kolkata
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+# Copy package.json to your working container
+COPY package.json /usr/src/app/
+
+# Install node dependencies
+RUN npm install
+
+# Copy the source code
+COPY . /usr/src/app
+
+# Expose the port
+EXPOSE 3000
+
+# Start the node server
+CMD [ “npm”, “start” ]
