@@ -16,22 +16,6 @@ var OtpSchema = new Schema({
 	contactNumber: {
 		type: String,
 		required: 'Please enter the contact number'
-	},
-	otp: {
-		type: Number,
-		required: 'Please enter the OTP'
-	},
-	validity: {
-		type: String,
-		required: 'Please enter the validity timestamp',
-		default: time.currentUnixTime()
-	},
-	isVerified: {
-		type: Boolean,
-		default: false
-	},
-	verifiedOn: {
-		type: String
 	}
 });
 

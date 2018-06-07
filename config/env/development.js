@@ -4,7 +4,7 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
 	db: {
-		uri: 'mongodb://mongo:27017',
+		uri: 'mongodb://mongo:27017/node-app',
 		options: {
 			user: '',
 			pass: ''
