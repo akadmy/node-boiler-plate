@@ -4,10 +4,10 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
 	db: {
-		uri: process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost:27017') + '/base-app',
+		uri: 'mongodb://mongo:27017',
 		options: {
-			user: '',
-			pass: ''
+			user: 'root',
+			pass: 'example'
 		},
 		// Enable mongoose debug mode
 		debug: process.env.MONGODB_DEBUG || false
