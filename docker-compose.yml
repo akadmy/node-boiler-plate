@@ -1,5 +1,15 @@
-version: "2"
+version: "3"
 services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    expose:
+      - '27017'
+    ports:
+      - "27017:27017"
+    command: '--smallfiles --logpath=/dev/null'
+    volumes:
+      - ./data/mongo:/data/db
   app:
     container_name: app
     restart: always
@@ -10,10 +20,5 @@ services:
       - mongo
     links:
       - mongo:mongo
-  mongo:
-    container_name: mongo
-    image: mongo
-    volumes:
-      - ./data:/data/db
-    ports:
-      - "27017:27017"
+volumes:
+  data-volume:

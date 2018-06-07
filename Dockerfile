@@ -20,4 +20,4 @@ COPY . /usr/src/app
 EXPOSE 3000 27017
 
 # Start the node server
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]
